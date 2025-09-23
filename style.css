@@ -300,10 +300,18 @@ body.dark-mode .btn:hover {
     transition: opacity 1s ease, color 0.5s ease, transform 1s ease;
 }
 
-.sky-object i {
-    /* 太陽預設顏色 */
-    color: rgba(255, 230, 0, 0.8); /* 暖黃色 */
-    text-shadow: 0 0 50px rgba(255, 165, 0, 0.8); /* 發光效果 */
+.sky-object i { /* 或是您用來選取太陽圖示的選擇器 */
+    /* 1. 核心顏色：更亮、更接近白色，模擬太陽的熾熱核心，使其在橘色背景上更突出 */
+    color: rgb(255, 245, 200);
+
+    /* 2. 多層次 text-shadow 強化發光效果 */
+    text-shadow:
+        /* 第一層：緊貼核心的明亮光暈，增加輪廓清晰度 */
+        0 0 15px rgba(255, 255, 220, 0.95),
+        /* 第二層：主要的橘黃色光芒，這是夕陽的基礎色調 */
+        0 0 40px rgba(255, 200, 0, 0.9),
+        /* 第三層：範圍最廣的深橘紅色光暈，營造氛圍感，更像夕陽 */
+        0 0 90px rgba(255, 110, 0, 0.85);
 }
 
 body.dark-mode .sky-object i {
