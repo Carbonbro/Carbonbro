@@ -1,14 +1,99 @@
-/* 通用樣式與變數 */
+/* 通用樣式與變數 - 夕陽模式 (預設) */
 :root {
-    /* 主要顏色變更為夕陽色系 */
     --bg-color-start: #ff7e5f; /* 暖橘色 */
     --bg-color-end: #feb47b;   /* 淺橘色 */
-    --card-bg-color: #fcefe9;  /* 淺色卡片背景，與夕陽色系搭配 */
+    --card-bg-color: #fcefe9;  /* 淺色卡片背景 */
     --accent-color: #d1512c;   /* 深橘紅作為強調色 */
-    --text-color: #333333;     /* 主要文字色，深色以保持可讀性 */
+    --text-color: #333333;     /* 主要文字色 */
     --secondary-text-color: #666666; /* 次要文字色 */
-    --border-color: #f0d8c8;   /* 邊框顏色，淺色系 */
+    --border-color: #f0d8c8;   /* 邊框顏色 */
+
+    /* 月光模式變數 (會在 .light-mode class 中覆寫) */
+    --light-bg-color-start: #2b5876; /* 深藍色 */
+    --light-bg-color-end: #4e4376;   /* 紫藍色 */
+    --light-card-bg-color: #3f4762;  /* 深色卡片背景 */
+    --light-accent-color: #8bbcd4;   /* 淺藍色強調色 */
+    --light-text-color: #f0f8ff;     /* 淺色文字 */
+    --light-secondary-text-color: #c0d9e8; /* 淺色次要文字 */
+    --light-border-color: #5a6482;   /* 淺藍邊框 */
 }
+
+/* 月光模式樣式 */
+body.light-mode {
+    --bg-color-start: var(--light-bg-color-start);
+    --bg-color-end: var(--light-bg-color-end);
+    --card-bg-color: var(--light-card-bg-color);
+    --accent-color: var(--light-accent-color);
+    --text-color: var(--light-text-color);
+    --secondary-text-color: var(--light-secondary-text-color);
+    --border-color: var(--light-border-color);
+
+    background: linear-gradient(180deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
+}
+
+body.light-mode .navbar {
+    background-color: rgba(30, 35, 50, 0.95); /* 更深的導覽列背景 */
+}
+
+body.light-mode .navbar .logo {
+    color: var(--accent-color);
+}
+
+body.light-mode .hero-section {
+    color: var(--text-color);
+    text-shadow: none; /* 月光模式下移除文字陰影 */
+}
+
+body.light-mode .hero-section h1 {
+    color: var(--accent-color);
+}
+
+body.light-mode .hero-section p {
+    color: var(--secondary-text-color);
+}
+
+body.light-mode .section {
+    background-color: rgba(45, 55, 72, 0.9); /* 更深的 section 背景 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .project-card {
+    background-color: var(--card-bg-color); /* 使用新的卡片背景色 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode .footer {
+    background-color: rgba(30, 35, 50, 0.95);
+}
+
+/* 模式切換按鈕樣式 */
+.theme-toggle-btn {
+    background: var(--accent-color);
+    color: #ffffff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-left: 20px;
+}
+
+.theme-toggle-btn:hover {
+    background: #ad3d1f; /* 夕陽模式下的hover */
+    transform: translateY(-1px);
+}
+
+body.light-mode .theme-toggle-btn {
+    background: var(--light-accent-color);
+    color: #333333; /* 月光模式下的按鈕文字 */
+}
+
+body.light-mode .theme-toggle-btn:hover {
+    background: #6a9ac3; /* 月光模式下的hover */
+}
+
 
 html {
     scroll-behavior: smooth;
@@ -24,9 +109,9 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    /* 將整個 body 的背景設為漸變色 */
     background: linear-gradient(180deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
-    background-attachment: fixed; /* 讓背景固定，滾動時漸變色不動 */
+    background-attachment: fixed;
+    transition: background-color 0.5s ease; /* 為背景色切換添加過渡效果 */
 }
 
 h1, h2, h3 {
@@ -34,6 +119,7 @@ h1, h2, h3 {
     color: var(--text-color);
     margin-bottom: 1rem;
     font-weight: 700;
+    transition: color 0.5s ease; /* 為標題顏色切換添加過渡效果 */
 }
 
 h2 {
@@ -54,6 +140,7 @@ h2::after {
     height: 4px;
     background-color: var(--accent-color);
     border-radius: 2px;
+    transition: background-color 0.5s ease; /* 為強調線顏色切換添加過渡效果 */
 }
 
 a {
@@ -65,6 +152,10 @@ a {
 a:hover {
     color: #ad3d1f; /* 強調色的深一點版本 */
 }
+body.light-mode a:hover { /* 月光模式下的連結hover */
+    color: #6a9ac3;
+}
+
 
 .container {
     max-width: 1100px;
@@ -76,31 +167,39 @@ a:hover {
 .btn {
     display: inline-block;
     background: var(--accent-color);
-    color: #ffffff; /* 按鈕文字用白色以確保對比 */
+    color: #ffffff;
     padding: 12px 25px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: 600;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    background: #ad3d1f; /* 強調色的深一點版本 */
+    background: #ad3d1f;
     transform: translateY(-2px);
 }
+body.light-mode .btn {
+    color: #333333;
+}
+body.light-mode .btn:hover {
+    background: #6a9ac3;
+}
+
 
 /* 導覽列 */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.9); /* 淺色半透明導覽列 */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 1.2rem 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.5s ease; /* 為導覽列背景切換添加過渡效果 */
 }
 
 .navbar .container {
@@ -113,13 +212,15 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--accent-color); /* logo 使用強調色 */
+    color: var(--accent-color);
+    transition: color 0.5s ease;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 25px;
+    align-items: center; /* 讓按鈕與連結對齊 */
 }
 
 .nav-links a {
@@ -128,6 +229,7 @@ a:hover {
     font-weight: 400;
     padding: 5px 0;
     position: relative;
+    transition: color 0.5s ease;
 }
 
 .nav-links a::after {
@@ -138,7 +240,7 @@ a:hover {
     width: 0;
     height: 2px;
     background-color: var(--accent-color);
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out, background-color 0.5s ease;
 }
 
 .nav-links a:hover::after,
@@ -152,38 +254,44 @@ a:hover {
 
 /* 英雄區塊 */
 .hero-section {
-    min-height: calc(100vh - 80px); /* 減去導覽列高度 */
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 80px 0;
-    /* 移除這裡的漸變，因為 body 已經有了全局漸變 */
-    /* background: linear-gradient(135deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%); */
-    color: #ffffff; /* 英雄區塊文字使用白色以增強對比 */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* 增加文字陰影 */
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 
 .hero-section h1 {
     font-size: 4.5rem;
     margin-bottom: 15px;
-    color: #ffffff; /* 標題文字白色 */
+    color: #ffffff;
     line-height: 1.1;
+    transition: color 0.5s ease;
 }
 
 .hero-section p {
     font-size: 1.8rem;
-    color: #ffe0b2; /* 淺橘色副標題 */
+    color: #ffe0b2;
     font-weight: 300;
+    transition: color 0.5s ease;
 }
 
 /* 區塊通用樣式 */
 .section {
     padding: 100px 0;
-    background-color: rgba(255, 255, 255, 0.9); /* 讓 section 有淺色背景，突出於漸變色之上 */
+    background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 20px; /* 增加 section 之間的間距 */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 12px; /* 添加圓角 */
+    margin: 40px auto; /* 讓區塊水平置中並有間距 */
+    max-width: 1000px;
+    padding: 60px 20px;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .section:last-of-type {
@@ -193,10 +301,6 @@ a:hover {
 /* 關於我 */
 #about {
     text-align: center;
-    border-radius: 12px;
-    margin: 40px auto;
-    max-width: 1000px;
-    padding: 60px 20px;
 }
 
 #about p {
@@ -204,15 +308,12 @@ a:hover {
     margin: 0 auto;
     font-size: 1.15rem;
     color: var(--secondary-text-color);
+    transition: color 0.5s ease;
 }
 
 /* 專案 */
 #projects {
-    background-color: var(--card-bg-color); /* 淺色卡片背景 */
-    border-radius: 12px;
-    margin: 40px auto;
-    max-width: 1000px;
-    padding: 60px 20px;
+    background-color: var(--card-bg-color);
 }
 
 .project-grid {
@@ -223,12 +324,12 @@ a:hover {
 }
 
 .project-card {
-    background-color: #ffffff; /* 專案卡片白色背景 */
+    background-color: #ffffff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 調整陰影以適應淺色背景 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .project-card:hover {
@@ -240,6 +341,7 @@ a:hover {
     color: var(--accent-color);
     font-size: 1.7rem;
     margin-bottom: 15px;
+    transition: color 0.5s ease;
 }
 
 .project-card p {
@@ -247,30 +349,29 @@ a:hover {
     font-size: 1rem;
     line-height: 1.7;
     margin-bottom: 20px;
+    transition: color 0.5s ease;
 }
 
 /* 聯絡方式 */
 #contact {
     text-align: center;
-    border-radius: 12px;
-    margin: 40px auto;
-    max-width: 1000px;
-    padding: 60px 20px;
 }
 
 #contact p {
     font-size: 1.15rem;
     color: var(--secondary-text-color);
     margin-bottom: 30px;
+    transition: color 0.5s ease;
 }
 
 /* 頁尾 */
 .footer {
-    background-color: #f7f7f7; /* 淺色頁尾 */
+    background-color: #f7f7f7;
     color: var(--secondary-text-color);
     padding: 40px 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
+    transition: background-color 0.5s ease, border-color 0.5s ease;
 }
 
 .footer .social-links {
@@ -278,7 +379,7 @@ a:hover {
 }
 
 .footer .social-links a {
-    color: var(--accent-color); /* 頁尾連結使用強調色 */
+    color: var(--accent-color);
     margin: 0 15px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
@@ -287,11 +388,10 @@ a:hover {
 .footer .social-links a:hover {
     color: #ad3d1f;
 }
-
-.footer p {
-    font-size: 0.9rem;
-    color: var(--secondary-text-color);
+body.light-mode .footer .social-links a:hover {
+    color: #6a9ac3;
 }
+
 
 /* 響應式設計 */
 @media (max-width: 992px) {
@@ -339,7 +439,7 @@ a:hover {
         font-size: 1rem;
     }
     .project-grid {
-        grid-template-columns: 1fr; /* 小螢幕下單列顯示 */
+        grid-template-columns: 1fr;
     }
     .btn {
         padding: 10px 20px;
