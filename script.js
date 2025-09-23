@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 根據當前模式更新按鈕文字
             if (body.classList.contains('light-mode')) {
-                themeToggleBtn.textContent = '夕陽模式';
+                themeToggleBtn.textContent = '淺色模式';
             } else {
-                themeToggleBtn.textContent = '月光模式';
+                themeToggleBtn.textContent = '深色模式';
             }
         });
     }
