@@ -1,11 +1,13 @@
 /* 通用樣式與變數 */
 :root {
-    --bg-color: #1a202c; /* 深色背景 */
-    --card-bg-color: #2d3748; /* 卡片背景 */
-    --accent-color: #4fd1c5; /* 強調色 */
-    --text-color: #f7fafc; /* 主要文字色 */
-    --secondary-text-color: #a0aec0; /* 次要文字色 */
-    --border-color: #4a5568; /* 邊框顏色 */
+    /* 主要顏色變更為夕陽色系 */
+    --bg-color-start: #ff7e5f; /* 暖橘色 */
+    --bg-color-end: #feb47b;   /* 淺橘色 */
+    --card-bg-color: #fcefe9;  /* 淺色卡片背景，與夕陽色系搭配 */
+    --accent-color: #d1512c;   /* 深橘紅作為強調色 */
+    --text-color: #333333;     /* 主要文字色，深色以保持可讀性 */
+    --secondary-text-color: #666666; /* 次要文字色 */
+    --border-color: #f0d8c8;   /* 邊框顏色，淺色系 */
 }
 
 html {
@@ -22,7 +24,9 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--bg-color);
+    /* 將整個 body 的背景設為漸變色 */
+    background: linear-gradient(180deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
+    background-attachment: fixed; /* 讓背景固定，滾動時漸變色不動 */
 }
 
 h1, h2, h3 {
@@ -59,7 +63,7 @@ a {
 }
 
 a:hover {
-    color: #38b2ac; /* 強調色的深一點版本 */
+    color: #ad3d1f; /* 強調色的深一點版本 */
 }
 
 .container {
@@ -72,7 +76,7 @@ a:hover {
 .btn {
     display: inline-block;
     background: var(--accent-color);
-    color: var(--bg-color); /* 按鈕文字用深色 */
+    color: #ffffff; /* 按鈕文字用白色以確保對比 */
     padding: 12px 25px;
     border: none;
     border-radius: 8px;
@@ -85,15 +89,15 @@ a:hover {
 }
 
 .btn:hover {
-    background: #38b2ac; /* 強調色的深一點版本 */
+    background: #ad3d1f; /* 強調色的深一點版本 */
     transform: translateY(-2px);
 }
 
 /* 導覽列 */
 .navbar {
-    background-color: var(--card-bg-color);
+    background-color: rgba(255, 255, 255, 0.9); /* 淺色半透明導覽列 */
     padding: 1.2rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -109,7 +113,7 @@ a:hover {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--accent-color); /* logo 使用強調色 */
 }
 
 .nav-links {
@@ -143,7 +147,7 @@ a:hover {
 }
 
 .nav-links a:hover {
-    color: var(--text-color);
+    color: var(--accent-color);
 }
 
 /* 英雄區塊 */
@@ -154,26 +158,32 @@ a:hover {
     justify-content: center;
     text-align: center;
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--bg-color) 0%, #0f151f 100%);
+    /* 移除這裡的漸變，因為 body 已經有了全局漸變 */
+    /* background: linear-gradient(135deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%); */
+    color: #ffffff; /* 英雄區塊文字使用白色以增強對比 */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* 增加文字陰影 */
 }
 
 .hero-section h1 {
     font-size: 4.5rem;
     margin-bottom: 15px;
-    color: var(--accent-color);
+    color: #ffffff; /* 標題文字白色 */
     line-height: 1.1;
 }
 
 .hero-section p {
     font-size: 1.8rem;
-    color: var(--secondary-text-color);
+    color: #ffe0b2; /* 淺橘色副標題 */
     font-weight: 300;
 }
 
 /* 區塊通用樣式 */
 .section {
     padding: 100px 0;
+    background-color: rgba(255, 255, 255, 0.9); /* 讓 section 有淺色背景，突出於漸變色之上 */
     border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px; /* 增加 section 之間的間距 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 輕微陰影 */
 }
 
 .section:last-of-type {
@@ -183,6 +193,10 @@ a:hover {
 /* 關於我 */
 #about {
     text-align: center;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 60px 20px;
 }
 
 #about p {
@@ -194,7 +208,11 @@ a:hover {
 
 /* 專案 */
 #projects {
-    background-color: var(--card-bg-color);
+    background-color: var(--card-bg-color); /* 淺色卡片背景 */
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 60px 20px;
 }
 
 .project-grid {
@@ -205,17 +223,17 @@ a:hover {
 }
 
 .project-card {
-    background-color: var(--bg-color);
+    background-color: #ffffff; /* 專案卡片白色背景 */
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* 調整陰影以適應淺色背景 */
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-card h3 {
@@ -234,6 +252,10 @@ a:hover {
 /* 聯絡方式 */
 #contact {
     text-align: center;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 1000px;
+    padding: 60px 20px;
 }
 
 #contact p {
@@ -244,7 +266,7 @@ a:hover {
 
 /* 頁尾 */
 .footer {
-    background-color: var(--card-bg-color);
+    background-color: #f7f7f7; /* 淺色頁尾 */
     color: var(--secondary-text-color);
     padding: 40px 0;
     text-align: center;
@@ -256,14 +278,14 @@ a:hover {
 }
 
 .footer .social-links a {
-    color: var(--text-color);
+    color: var(--accent-color); /* 頁尾連結使用強調色 */
     margin: 0 15px;
     font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .footer .social-links a:hover {
-    color: var(--accent-color);
+    color: #ad3d1f;
 }
 
 .footer p {
