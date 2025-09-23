@@ -1,4 +1,4 @@
-/* 通用樣式與變數 - 夕陽模式 (預設) */
+/* 通用樣式與變數 - 淺色模式 (預設，即夕陽漸變) */
 :root {
     --bg-color-start: #ff7e5f; /* 暖橘色 */
     --bg-color-end: #feb47b;   /* 淺橘色 */
@@ -8,61 +8,61 @@
     --secondary-text-color: #666666; /* 次要文字色 */
     --border-color: #f0d8c8;   /* 邊框顏色 */
 
-    /* 月光模式變數 (會在 .light-mode class 中覆寫) */
-    --light-bg-color-start: #2b5876; /* 深藍色 */
-    --light-bg-color-end: #4e4376;   /* 紫藍色 */
-    --light-card-bg-color: #3f4762;  /* 深色卡片背景 */
-    --light-accent-color: #8bbcd4;   /* 淺藍色強調色 */
-    --light-text-color: #f0f8ff;     /* 淺色文字 */
-    --light-secondary-text-color: #c0d9e8; /* 淺色次要文字 */
-    --light-border-color: #5a6482;   /* 淺藍邊框 */
+    /* 深色模式變數 (會在 .dark-mode class 中覆寫) */
+    --dark-bg-color-start: #1a202c; /* 深藍色 */
+    --dark-bg-color-end: #2d3748;   /* 紫藍色 */
+    --dark-card-bg-color: #3f4762;  /* 深色卡片背景 */
+    --dark-accent-color: #8bbcd4;   /* 淺藍色強調色 */
+    --dark-text-color: #f0f8ff;     /* 淺色文字 */
+    --dark-secondary-text-color: #c0d9e8; /* 淺色次要文字 */
+    --dark-border-color: #5a6482;   /* 淺藍邊框 */
 }
 
-/* 月光模式樣式 */
-body.light-mode {
-    --bg-color-start: var(--light-bg-color-start);
-    --bg-color-end: var(--light-bg-color-end);
-    --card-bg-color: var(--light-card-bg-color);
-    --accent-color: var(--light-accent-color);
-    --text-color: var(--light-text-color);
-    --secondary-text-color: var(--light-secondary-text-color);
-    --border-color: var(--light-border-color);
+/* 深色模式樣式 */
+body.dark-mode {
+    --bg-color-start: var(--dark-bg-color-start);
+    --bg-color-end: var(--dark-bg-color-end);
+    --card-bg-color: var(--dark-card-bg-color);
+    --accent-color: var(--dark-accent-color);
+    --text-color: var(--dark-text-color);
+    --secondary-text-color: var(--dark-secondary-text-color);
+    --border-color: var(--dark-border-color);
 
     background: linear-gradient(180deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
 }
 
-body.light-mode .navbar {
+body.dark-mode .navbar {
     background-color: rgba(30, 35, 50, 0.95); /* 更深的導覽列背景 */
 }
 
-body.light-mode .navbar .logo {
+body.dark-mode .navbar .logo {
     color: var(--accent-color);
 }
 
-body.light-mode .hero-section {
+body.dark-mode .hero-section {
     color: var(--text-color);
-    text-shadow: none; /* 月光模式下移除文字陰影 */
+    text-shadow: none; /* 深色模式下移除文字陰影 */
 }
 
-body.light-mode .hero-section h1 {
+body.dark-mode .hero-section h1 {
     color: var(--accent-color);
 }
 
-body.light-mode .hero-section p {
+body.dark-mode .hero-section p {
     color: var(--secondary-text-color);
 }
 
-body.light-mode .section {
+body.dark-mode .section {
     background-color: rgba(45, 55, 72, 0.9); /* 更深的 section 背景 */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-body.light-mode .project-card {
+body.dark-mode .project-card {
     background-color: var(--card-bg-color); /* 使用新的卡片背景色 */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-body.light-mode .footer {
+body.dark-mode .footer {
     background-color: rgba(30, 35, 50, 0.95);
 }
 
@@ -81,17 +81,17 @@ body.light-mode .footer {
 }
 
 .theme-toggle-btn:hover {
-    background: #ad3d1f; /* 夕陽模式下的hover */
+    background: #ad3d1f; /* 淺色模式下的hover */
     transform: translateY(-1px);
 }
 
-body.light-mode .theme-toggle-btn {
-    background: var(--light-accent-color);
-    color: #333333; /* 月光模式下的按鈕文字 */
+body.dark-mode .theme-toggle-btn {
+    background: var(--dark-accent-color);
+    color: #333333; /* 深色模式下的按鈕文字 */
 }
 
-body.light-mode .theme-toggle-btn:hover {
-    background: #6a9ac3; /* 月光模式下的hover */
+body.dark-mode .theme-toggle-btn:hover {
+    background: #6a9ac3; /* 深色模式下的hover */
 }
 
 
@@ -152,7 +152,7 @@ a {
 a:hover {
     color: #ad3d1f; /* 強調色的深一點版本 */
 }
-body.light-mode a:hover { /* 月光模式下的連結hover */
+body.dark-mode a:hover { /* 深色模式下的連結hover */
     color: #6a9ac3;
 }
 
@@ -183,10 +183,10 @@ body.light-mode a:hover { /* 月光模式下的連結hover */
     background: #ad3d1f;
     transform: translateY(-2px);
 }
-body.light-mode .btn {
+body.dark-mode .btn {
     color: #333333;
 }
-body.light-mode .btn:hover {
+body.dark-mode .btn:hover {
     background: #6a9ac3;
 }
 
@@ -256,6 +256,7 @@ body.light-mode .btn:hover {
 .hero-section {
     min-height: calc(100vh - 80px);
     display: flex;
+    flex-direction: column; /* 讓內容垂直堆疊 */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -263,6 +264,8 @@ body.light-mode .btn:hover {
     color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     transition: color 0.5s ease, text-shadow 0.5s ease;
+    position: relative; /* 定位天空物體用 */
+    overflow: hidden; /* 確保天空物體不會溢出 */
 }
 
 .hero-section h1 {
@@ -271,6 +274,8 @@ body.light-mode .btn:hover {
     color: #ffffff;
     line-height: 1.1;
     transition: color 0.5s ease;
+    z-index: 2; /* 確保文字在圖標之上 */
+    position: relative;
 }
 
 .hero-section p {
@@ -278,6 +283,33 @@ body.light-mode .btn:hover {
     color: #ffe0b2;
     font-weight: 300;
     transition: color 0.5s ease;
+    z-index: 2; /* 確保文字在圖標之上 */
+    position: relative;
+}
+
+/* 天空物體 (太陽/月亮) 樣式 */
+.sky-object {
+    position: absolute;
+    top: 15%; /* 調整位置 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 15vw; /* 讓圖標大小適應螢幕，但不影響文字 */
+    opacity: 0.2; /* 半透明不影響閱讀 */
+    pointer-events: none; /* 讓圖標不阻擋鼠標事件 */
+    z-index: 1; /* 在背景和文字之間 */
+    transition: opacity 1s ease, color 0.5s ease, transform 1s ease;
+}
+
+.sky-object i {
+    /* 太陽預設顏色 */
+    color: rgba(255, 230, 0, 0.8); /* 暖黃色 */
+    text-shadow: 0 0 50px rgba(255, 165, 0, 0.8); /* 發光效果 */
+}
+
+body.dark-mode .sky-object i {
+    /* 月亮顏色和效果 */
+    color: rgba(220, 240, 255, 0.7); /* 淺藍白色 */
+    text-shadow: 0 0 40px rgba(170, 200, 255, 0.7); /* 月光發光 */
 }
 
 /* 區塊通用樣式 */
@@ -285,10 +317,9 @@ body.light-mode .btn:hover {
     padding: 100px 0;
     background-color: rgba(255, 255, 255, 0.9);
     border-bottom: 1px solid var(--border-color);
-    margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-radius: 12px; /* 添加圓角 */
-    margin: 40px auto; /* 讓區塊水平置中並有間距 */
+    border-radius: 12px;
+    margin: 40px auto;
     max-width: 1000px;
     padding: 60px 20px;
     transition: background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
@@ -388,7 +419,7 @@ body.light-mode .btn:hover {
 .footer .social-links a:hover {
     color: #ad3d1f;
 }
-body.light-mode .footer .social-links a:hover {
+body.dark-mode .footer .social-links a:hover {
     color: #6a9ac3;
 }
 
@@ -409,6 +440,9 @@ body.light-mode .footer .social-links a:hover {
     }
     .project-card {
         padding: 25px;
+    }
+    .sky-object {
+        font-size: 20vw; /* 小螢幕下圖標可以稍微大一點 */
     }
 }
 
@@ -448,6 +482,10 @@ body.light-mode .footer .social-links a:hover {
     .footer .social-links a {
         font-size: 1.1rem;
     }
+    .sky-object {
+        font-size: 25vw;
+        top: 10%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -477,5 +515,9 @@ body.light-mode .footer .social-links a:hover {
     }
     .project-card p {
         font-size: 0.9rem;
+    }
+    .sky-object {
+        font-size: 30vw;
+        top: 8%;
     }
 }
