@@ -288,63 +288,63 @@ body.dark-mode .btn:hover {
 }
 
 /* 天空物體 (太陽/月亮) 樣式 */
+.sky-object {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 250px;
+    opacity: 0.15;
+    z-index: 1;
+    transition: font-size 0.3s ease;
+}
+
 /* ================================== */
-/*         動態光暈動畫效果           */
+/*     【精細化】動態光暈動畫效果     */
 /* ================================== */
 
-/* 太陽的溫暖脈動效果 */
+/* 太陽的溫暖呼吸效果 */
 @keyframes sunGlow {
-    0% {
+    0%, 100% {
         text-shadow:
-            0 0 15px rgba(255, 255, 220, 0.95),
-            0 0 40px rgba(255, 200, 0, 0.9),
-            0 0 90px rgba(255, 110, 0, 0.85),
-            0 0 120px rgba(255, 100, 0, 0.8); /* 增加一個最外層光暈 */
+            0 0 20px #fff,
+            0 0 60px #fefcbf,
+            0 0 100px #f5d491,
+            0 0 150px #ff9900;
+        transform: scale(1);
     }
     50% {
-        /* 動畫中間點，光暈稍微增強和擴大 */
         text-shadow:
-            0 0 20px rgba(255, 255, 230, 1),   /* 核心更亮 */
-            0 0 50px rgba(255, 210, 30, 0.95),/* 主光暈擴大 */
-            0 0 100px rgba(255, 120, 20, 0.9),
-            0 0 140px rgba(255, 110, 0, 0.85);
-    }
-    100% {
-        /* 返回初始狀態，形成循環 */
-        text-shadow:
-            0 0 15px rgba(255, 255, 220, 0.95),
-            0 0 40px rgba(255, 200, 0, 0.9),
-            0 0 90px rgba(255, 110, 0, 0.85),
-            0 0 120px rgba(255, 100, 0, 0.8);
+            0 0 30px #fff,
+            0 0 80px #fefcbf,
+            0 0 140px #f5d491,
+            0 0 200px #ff9900,
+            0 0 280px #ff6600; /* 增加一層熾熱的紅色外焰 */
+        transform: scale(1.05); /* 讓太陽本身也輕微放大 */
     }
 }
 
-/* 月亮的清冷脈動效果 */
+/* 月亮的靜謐脈動效果 */
 @keyframes moonGlow {
-    0% {
+    0%, 100% {
         text-shadow:
-            0 0 10px rgba(230, 245, 255, 0.95),
-            0 0 30px rgba(180, 210, 255, 0.85),
-            0 0 60px rgba(150, 190, 255, 0.75),
-            0 0 100px rgba(135, 170, 240, 0.6); /* 增加一個最外層的朦朧光暈 */
+            0 0 20px #fff,
+            0 0 50px #e0f7fa,
+            0 0 90px #b3e5fc,
+            0 0 140px #81d4fa;
+        transform: scale(1);
     }
     50% {
-        /* 動畫中間點，光暈稍微增強和擴大 */
         text-shadow:
-            0 0 15px rgba(240, 250, 255, 1),   /* 核心更亮 */
-            0 0 40px rgba(190, 220, 255, 0.9), /* 主光暈擴大 */
-            0 0 80px rgba(160, 200, 255, 0.8),
-            0 0 120px rgba(145, 180, 255, 0.65);
-    }
-    100% {
-        /* 返回初始狀態，形成循環 */
-        text-shadow:
-            0 0 10px rgba(230, 245, 255, 0.95),
-            0 0 30px rgba(180, 210, 255, 0.85),
-            0 0 60px rgba(150, 190, 255, 0.75),
-            0 0 100px rgba(135, 170, 240, 0.6);
+            0 0 30px #fff,
+            0 0 70px #e0f7fa,
+            0 0 120px #b3e5fc,
+            0 0 180px #81d4fa,
+            0 0 250px #4fc3f7; /* 增加一層更深的藍色外圈 */
+        transform: scale(1.03); /* 月亮的脈動更細微 */
     }
 }
+
 
 /* ================================== */
 /*        太陽 & 月亮 圖示樣式        */
@@ -352,17 +352,15 @@ body.dark-mode .btn:hover {
 
 /* 太陽 (預設模式) */
 .sky-object i {
-    color: rgb(255, 245, 200); /* 熾熱的核心 */
-    /* 應用太陽的動畫 */
-    animation: sunGlow 5s infinite ease-in-out; /* 5秒循環一次，速度曲線緩和 */
-    transition: all 0.5s ease-in-out; /* 為了切換時有平滑過渡效果 */
+    color: #fffbef;
+    animation: sunGlow 10s infinite ease-in-out; /* 動畫時間加長，節奏更緩慢自然 */
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* 切換時有更流暢的動畫曲線 */
 }
 
 /* 月亮 (深色模式) */
 body.dark-mode .sky-object i {
-    color: rgb(230, 245, 255); /* 清冷的核心 */
-    /* 應用月亮的動畫 */
-    animation: moonGlow 4s infinite ease-in-out; /* 月亮動畫可以稍微快一點，更有神秘感 */
+    color: #f0f8ff;
+    animation: moonGlow 8s infinite ease-in-out; /* 月亮動畫比太陽稍快，更顯神秘 */
 }
 
 /* 區塊通用樣式 */
@@ -511,12 +509,6 @@ body.dark-mode .contact-card:hover {
     color: var(--dark-accent-color);
 }
 
-#contact p {
-    font-size: 1.15rem;
-    color: var(--secondary-text-color);
-    margin-bottom: 30px;
-    transition: color 0.5s ease;
-}
 
 /* 頁尾 */
 .footer {
