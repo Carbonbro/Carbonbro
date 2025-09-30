@@ -436,9 +436,79 @@ body.dark-mode .sky-object i {
     transition: color 0.5s ease;
 }
 
-/* 聯絡方式 */
-#contact {
+/* 聯絡方式卡片化 (三行式版本) */
+#contact p {
+    font-size: 1.15rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 40px;
+    transition: color 0.5s ease;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 改為單欄網格 */
+    gap: 20px; /* 縮小行間距 */
+    max-width: 700px; /* 限制最大寬度，避免在寬螢幕上過長 */
+    margin: 0 auto;   /* 置中 */
+}
+
+.contact-card {
+    background-color: #ffffff;
+    padding: 20px 30px; /* 調整內距 */
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
+    color: var(--text-color);
+    
+    /* 改為 Flexbox 排版，讓圖示和文字並排 */
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.contact-card:hover {
+    transform: translateY(-8px) scale(1.02); /* 調整 hover 效果 */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+    color: var(--accent-color);
+}
+
+.contact-card i {
+    font-size: 2.5rem; /* 稍微縮小圖示 */
+    color: var(--accent-color);
+    margin-right: 25px; /* 圖示和文字的間距 */
+    transition: color 0.3s ease;
+    width: 40px; /* 給定固定寬度以對齊 */
     text-align: center;
+}
+
+.contact-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem; /* 調整字體大小 */
+    margin-bottom: 5px; /* 縮小與下方文字的間距 */
+    font-weight: 700;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.contact-card span {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+/* 當滑鼠懸停在卡片上時，文字顏色繼承卡片的顏色 */
+.contact-card:hover .contact-text h4,
+.contact-card:hover .contact-text span {
+    color: inherit;
+}
+
+/* 深色模式下的聯絡卡片 */
+body.dark-mode .contact-card {
+    background-color: var(--card-bg-color);
+}
+body.dark-mode .contact-card:hover {
+    color: var(--dark-accent-color);
 }
 
 #contact p {
