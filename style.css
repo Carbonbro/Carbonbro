@@ -293,7 +293,8 @@ body.dark-mode .btn:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 250px;
+    /* 【關鍵修正】使用 clamp() 實現平滑縮放 */
+    font-size: clamp(180px, 25vw, 280px);
     opacity: 0.15;
     z-index: 1;
     transition: font-size 0.3s ease;
@@ -539,13 +540,10 @@ body.dark-mode .footer .social-links a:hover {
         font-size: 2.5rem;
     }
     .section {
-        padding: 80px 30px; /* 增加水平內距 */
+        padding: 80px 30px;
     }
     .project-card {
         padding: 25px;
-    }
-    .sky-object {
-        font-size: 30vw;
     }
 }
 
@@ -560,7 +558,7 @@ body.dark-mode .footer .social-links a:hover {
         width: 100%;
     }
     .hero-section {
-        min-height: 80vh; /* 稍微增加高度，容納內容 */
+        min-height: 80vh;
         padding: 60px 20px;
     }
     .hero-section h1 {
@@ -580,10 +578,6 @@ body.dark-mode .footer .social-links a:hover {
     .project-grid {
         grid-template-columns: 1fr;
     }
-    .sky-object {
-        font-size: 40vw;
-        /* 【關鍵修正】移除 top 屬性，讓它繼承桌機版的置中樣式 */
-    }
     .contact-card {
         padding: 15px 20px;
     }
@@ -595,8 +589,8 @@ body.dark-mode .footer .social-links a:hover {
         font-size: 1.5rem;
     }
     .nav-links {
-        gap: 10px; /* 進一步縮小導覽列間距 */
-        flex-wrap: wrap; /* 允許換行 */
+        gap: 10px;
+        flex-wrap: wrap;
         justify-content: center;
     }
     .nav-links li {
@@ -632,9 +626,5 @@ body.dark-mode .footer .social-links a:hover {
     }
     .contact-card span {
         font-size: 0.9rem;
-    }
-    .sky-object {
-        font-size: 45vw;
-        /* 【關鍵修正】移除 top 屬性 */
     }
 }
