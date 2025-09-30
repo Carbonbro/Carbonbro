@@ -32,7 +32,7 @@ body.dark-mode {
 }
 
 body.dark-mode .navbar {
-    background-color: rgba(30, 35, 50, 0.95); /* 更深的導覽列背景 */
+    background-color: rgba(30, 35, 50, 0.95);
 }
 
 body.dark-mode .navbar .logo {
@@ -41,7 +41,7 @@ body.dark-mode .navbar .logo {
 
 body.dark-mode .hero-section {
     color: var(--text-color);
-    text-shadow: none; /* 深色模式下移除文字陰影 */
+    text-shadow: none;
 }
 
 body.dark-mode .hero-section h1 {
@@ -53,12 +53,12 @@ body.dark-mode .hero-section p {
 }
 
 body.dark-mode .section {
-    background-color: rgba(45, 55, 72, 0.9); /* 更深的 section 背景 */
+    background-color: rgba(45, 55, 72, 0.9);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 body.dark-mode .project-card {
-    background-color: var(--card-bg-color); /* 使用新的卡片背景色 */
+    background-color: var(--card-bg-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -81,17 +81,17 @@ body.dark-mode .footer {
 }
 
 .theme-toggle-btn:hover {
-    background: #ad3d1f; /* 淺色模式下的hover */
+    background: #ad3d1f;
     transform: translateY(-1px);
 }
 
 body.dark-mode .theme-toggle-btn {
     background: var(--dark-accent-color);
-    color: #333333; /* 深色模式下的按鈕文字 */
+    color: #333333;
 }
 
 body.dark-mode .theme-toggle-btn:hover {
-    background: #6a9ac3; /* 深色模式下的hover */
+    background: #6a9ac3;
 }
 
 
@@ -111,7 +111,7 @@ body {
     color: var(--text-color);
     background: linear-gradient(180deg, var(--bg-color-start) 0%, var(--bg-color-end) 100%);
     background-attachment: fixed;
-    transition: background-color 0.5s ease; /* 為背景色切換添加過渡效果 */
+    transition: background-color 0.5s ease;
 }
 
 h1, h2, h3 {
@@ -119,7 +119,7 @@ h1, h2, h3 {
     color: var(--text-color);
     margin-bottom: 1rem;
     font-weight: 700;
-    transition: color 0.5s ease; /* 為標題顏色切換添加過渡效果 */
+    transition: color 0.5s ease;
 }
 
 h2 {
@@ -140,7 +140,7 @@ h2::after {
     height: 4px;
     background-color: var(--accent-color);
     border-radius: 2px;
-    transition: background-color 0.5s ease; /* 為強調線顏色切換添加過渡效果 */
+    transition: background-color 0.5s ease;
 }
 
 a {
@@ -150,9 +150,9 @@ a {
 }
 
 a:hover {
-    color: #ad3d1f; /* 強調色的深一點版本 */
+    color: #ad3d1f;
 }
-body.dark-mode a:hover { /* 深色模式下的連結hover */
+body.dark-mode a:hover {
     color: #6a9ac3;
 }
 
@@ -199,7 +199,7 @@ body.dark-mode .btn:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color 0.5s ease; /* 為導覽列背景切換添加過渡效果 */
+    transition: background-color 0.5s ease;
 }
 
 .navbar .container {
@@ -220,7 +220,7 @@ body.dark-mode .btn:hover {
     list-style: none;
     display: flex;
     gap: 25px;
-    align-items: center; /* 讓按鈕與連結對齊 */
+    align-items: center;
 }
 
 .nav-links a {
@@ -256,16 +256,16 @@ body.dark-mode .btn:hover {
 .hero-section {
     min-height: calc(100vh - 80px);
     display: flex;
-    flex-direction: column; /* 讓內容垂直堆疊 */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 80px 0;
+    padding: 80px 20px;
     color: #ffffff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     transition: color 0.5s ease, text-shadow 0.5s ease;
-    position: relative; /* 定位天空物體用 */
-    overflow: hidden; /* 確保天空物體不會溢出 */
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-section h1 {
@@ -274,7 +274,7 @@ body.dark-mode .btn:hover {
     color: #ffffff;
     line-height: 1.1;
     transition: color 0.5s ease;
-    z-index: 2; /* 確保文字在圖標之上 */
+    z-index: 2;
     position: relative;
 }
 
@@ -283,7 +283,7 @@ body.dark-mode .btn:hover {
     color: #ffe0b2;
     font-weight: 300;
     transition: color 0.5s ease;
-    z-index: 2; /* 確保文字在圖標之上 */
+    z-index: 2;
     position: relative;
 }
 
@@ -303,7 +303,6 @@ body.dark-mode .btn:hover {
 /*     【精細化】動態光暈動畫效果     */
 /* ================================== */
 
-/* 太陽的溫暖呼吸效果 */
 @keyframes sunGlow {
     0%, 100% {
         text-shadow:
@@ -319,12 +318,11 @@ body.dark-mode .btn:hover {
             0 0 80px #fefcbf,
             0 0 140px #f5d491,
             0 0 200px #ff9900,
-            0 0 280px #ff6600; /* 增加一層熾熱的紅色外焰 */
-        transform: scale(1.05); /* 讓太陽本身也輕微放大 */
+            0 0 280px #ff6600;
+        transform: scale(1.05);
     }
 }
 
-/* 月亮的靜謐脈動效果 */
 @keyframes moonGlow {
     0%, 100% {
         text-shadow:
@@ -340,8 +338,8 @@ body.dark-mode .btn:hover {
             0 0 70px #e0f7fa,
             0 0 120px #b3e5fc,
             0 0 180px #81d4fa,
-            0 0 250px #4fc3f7; /* 增加一層更深的藍色外圈 */
-        transform: scale(1.03); /* 月亮的脈動更細微 */
+            0 0 250px #4fc3f7;
+        transform: scale(1.03);
     }
 }
 
@@ -350,17 +348,15 @@ body.dark-mode .btn:hover {
 /*        太陽 & 月亮 圖示樣式        */
 /* ================================== */
 
-/* 太陽 (預設模式) */
 .sky-object i {
     color: #fffbef;
-    animation: sunGlow 10s infinite ease-in-out; /* 動畫時間加長，節奏更緩慢自然 */
-    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* 切換時有更流暢的動畫曲線 */
+    animation: sunGlow 10s infinite ease-in-out;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* 月亮 (深色模式) */
 body.dark-mode .sky-object i {
     color: #f0f8ff;
-    animation: moonGlow 8s infinite ease-in-out; /* 月亮動畫比太陽稍快，更顯神秘 */
+    animation: moonGlow 8s infinite ease-in-out;
 }
 
 /* 區塊通用樣式 */
@@ -372,7 +368,7 @@ body.dark-mode .sky-object i {
     border-radius: 12px;
     margin: 40px auto;
     max-width: 1000px;
-    padding: 60px 20px;
+    padding: 60px 40px;
     transition: background-color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
@@ -381,10 +377,6 @@ body.dark-mode .sky-object i {
 }
 
 /* 關於我 */
-#about {
-    text-align: center;
-}
-
 #about p {
     max-width: 800px;
     margin: 0 auto;
@@ -394,10 +386,6 @@ body.dark-mode .sky-object i {
 }
 
 /* 專案 */
-#projects {
-    background-color: var(--card-bg-color);
-}
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -444,46 +432,44 @@ body.dark-mode .sky-object i {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 改為單欄網格 */
-    gap: 20px; /* 縮小行間距 */
-    max-width: 700px; /* 限制最大寬度，避免在寬螢幕上過長 */
-    margin: 0 auto;   /* 置中 */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .contact-card {
     background-color: #ffffff;
-    padding: 20px 30px; /* 調整內距 */
+    padding: 20px 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, border-color 0.5s ease;
     color: var(--text-color);
-    
-    /* 改為 Flexbox 排版，讓圖示和文字並排 */
     display: flex;
     align-items: center;
     text-align: left;
 }
 
 .contact-card:hover {
-    transform: translateY(-8px) scale(1.02); /* 調整 hover 效果 */
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
     color: var(--accent-color);
 }
 
 .contact-card i {
-    font-size: 2.5rem; /* 稍微縮小圖示 */
+    font-size: 2.5rem;
     color: var(--accent-color);
-    margin-right: 25px; /* 圖示和文字的間距 */
+    margin-right: 25px;
     transition: color 0.3s ease;
-    width: 40px; /* 給定固定寬度以對齊 */
+    width: 40px;
     text-align: center;
 }
 
 .contact-card h4 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3rem; /* 調整字體大小 */
-    margin-bottom: 5px; /* 縮小與下方文字的間距 */
+    font-size: 1.3rem;
+    margin-bottom: 5px;
     font-weight: 700;
     color: var(--text-color);
     transition: color 0.3s ease;
@@ -495,13 +481,11 @@ body.dark-mode .sky-object i {
     transition: color 0.3s ease;
 }
 
-/* 當滑鼠懸停在卡片上時，文字顏色繼承卡片的顏色 */
 .contact-card:hover .contact-text h4,
 .contact-card:hover .contact-text span {
     color: inherit;
 }
 
-/* 深色模式下的聯絡卡片 */
 body.dark-mode .contact-card {
     background-color: var(--card-bg-color);
 }
@@ -539,28 +523,33 @@ body.dark-mode .footer .social-links a:hover {
 }
 
 
-/* 響應式設計 */
+/* ================================== */
+/*         響應式設計 (手機優先)        */
+/* ================================== */
+
+/* 平板與大型手機 (寬度 992px 以下) */
 @media (max-width: 992px) {
     .hero-section h1 {
-        font-size: 3.5rem;
+        font-size: 3.8rem;
     }
     .hero-section p {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     h2 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     .section {
-        padding: 80px 0;
+        padding: 80px 30px; /* 增加水平內距 */
     }
     .project-card {
         padding: 25px;
     }
     .sky-object {
-        font-size: 20vw; /* 小螢幕下圖標可以稍微大一點 */
+        font-size: 30vw;
     }
 }
 
+/* 一般手機 (寬度 768px 以下) */
 @media (max-width: 768px) {
     .navbar .container {
         flex-direction: column;
@@ -571,59 +560,62 @@ body.dark-mode .footer .social-links a:hover {
         width: 100%;
     }
     .hero-section {
-        min-height: 70vh;
-        padding: 60px 0;
+        min-height: 80vh; /* 稍微增加高度，容納內容 */
+        padding: 60px 20px;
     }
     .hero-section h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
     .hero-section p {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 2rem;
     }
-    #about p, #contact p {
-        font-size: 1rem;
+    .section {
+        padding: 60px 20px;
+        margin: 20px auto;
     }
     .project-grid {
         grid-template-columns: 1fr;
     }
-    .btn {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    .footer .social-links a {
-        font-size: 1.1rem;
-    }
     .sky-object {
-        font-size: 25vw;
-        top: 10%;
+        font-size: 40vw;
+        /* 【關鍵修正】移除 top 屬性，讓它繼承桌機版的置中樣式 */
+    }
+    .contact-card {
+        padding: 15px 20px;
     }
 }
 
+/* 小型手機 (寬度 480px 以下) */
 @media (max-width: 480px) {
     .navbar .logo {
         font-size: 1.5rem;
     }
     .nav-links {
-        gap: 15px;
+        gap: 10px; /* 進一步縮小導覽列間距 */
+        flex-wrap: wrap; /* 允許換行 */
+        justify-content: center;
     }
-    .nav-links a {
-        font-size: 0.9rem;
+    .nav-links li {
+        padding: 0 5px;
+    }
+    .theme-toggle-btn {
+        margin-left: 10px;
     }
     .hero-section h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     .hero-section p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     h2 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
     .section {
-        padding: 50px 0;
+        padding: 50px 15px;
     }
     .project-card h3 {
         font-size: 1.4rem;
@@ -631,8 +623,18 @@ body.dark-mode .footer .social-links a:hover {
     .project-card p {
         font-size: 0.9rem;
     }
+    .contact-card i {
+        font-size: 2rem;
+        margin-right: 15px;
+    }
+    .contact-card h4 {
+        font-size: 1.1rem;
+    }
+    .contact-card span {
+        font-size: 0.9rem;
+    }
     .sky-object {
-        font-size: 30vw;
-        top: 8%;
+        font-size: 45vw;
+        /* 【關鍵修正】移除 top 屬性 */
     }
 }
